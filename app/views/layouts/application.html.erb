@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pizzaria!</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+    <h1 id="application-name"><a href="/">Pizzaria!</a></h1>
+    <nav>
+      <ul>
+          <li><a href="/customers">Customers</a></li>
+          <li><a href="/addresses">Addresses</a></li>
+          <li><a href="/orders">Orders</a></li>
+          <li><a href="/pizzas">Pizzas</a></li>
+          <li><a href="/pizza_orders">Bind Order-Pizza</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  </body>
+</html>
