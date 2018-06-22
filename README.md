@@ -1,24 +1,13 @@
-# README
+# Pizzaria!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run the application:
 
-Things you may want to cover:
+* Clone repository
 
-* Ruby version
+* cd pizzaria/
 
-* System dependencies
+* rails s (to start server)
 
-* Configuration
+* In your browser access localhost:3000
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* And that's it!

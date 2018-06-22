@@ -1908,3 +1908,224 @@ Processing by PizzaOrdersController#index as HTML
 Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-21 22:31:15 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 257ms (Views: 249.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-21 22:31:17 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 45ms (Views: 35.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/customers/3" for 127.0.0.1 at 2018-06-21 22:31:24 -0300
+Processing by CustomersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mQRU7bZH948Nn0lFdlNEUdStuJEP8fwbWPa8vCv1fPYbjc9ennYQFfOcRRK3XNgxlTjxqPSEj9Ij84PYYmzO6Q==", "id"=>"3"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:67
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/customers_controller.rb:57
+  [1m[36mCustomer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/customers_controller.rb:57
+  [1m[35m (66.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/customers_controller.rb:57
+Redirected to http://localhost:3000/customers
+Completed 302 Found in 79ms (ActiveRecord: 67.2ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-21 22:31:24 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/customers/2/edit" for 127.0.0.1 at 2018-06-21 22:31:26 -0300
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:67
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/_form.html.erb (13.2ms)
+  Rendered customers/edit.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 54ms (Views: 50.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/customers/2" for 127.0.0.1 at 2018-06-21 22:31:31 -0300
+Processing by CustomersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oZJFKKjx1M5dY8NLdljIJEWWK708ZgxL8P2e+HFMxtJdThN4gR5nEKPmO7TMoMtvhw7pV9ZpTNuYyT4DGHPd5A==", "customer"=>{"name"=>"Joelton"}, "commit"=>"Update Customer", "id"=>"2"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:67
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/customers_controller.rb:44
+  [1m[36mCustomer Update (1.5ms)[0m  [1m[33mUPDATE "customers" SET "name" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["name", "Joelton"], ["updated_at", "2018-06-22 01:31:31.449701"], ["id", 2]]
+  ↳ app/controllers/customers_controller.rb:44
+  [1m[35m (74.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/customers_controller.rb:44
+Redirected to http://localhost:3000/customers/2
+Completed 302 Found in 86ms (ActiveRecord: 76.0ms)
+
+
+Started GET "/customers/2" for 127.0.0.1 at 2018-06-21 22:31:31 -0300
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:67
+  Rendering customers/show.html.erb within layouts/application
+  Rendered customers/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-21 22:31:34 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 60ms (Views: 53.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/addresses/new" for 127.0.0.1 at 2018-06-21 22:31:36 -0300
+Processing by AddressesController#new as HTML
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (10.0ms)
+  Rendered addresses/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 72ms (Views: 69.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-21 22:31:37 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 60ms (Views: 56.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/addresses/1/edit" for 127.0.0.1 at 2018-06-21 22:31:39 -0300
+Processing by AddressesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:67
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (8.3ms)
+  Rendered addresses/edit.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 52ms (Views: 49.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/addresses/1" for 127.0.0.1 at 2018-06-21 22:31:52 -0300
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFN/WPRDPqxupAZMhsx3dR++2FTJmqj+XE58TR0rHoMJcBmemiUGrv6G74OEsPoOi7HTEuNHmi2rjYGfnXafYQ==", "address"=>{"street"=>"Rua 13 de maio", "number"=>"500", "city"=>"CWB", "complement"=>"Ap. 007", "customer_id"=>"2"}, "commit"=>"Update Address", "id"=>"1"}
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:67
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/addresses_controller.rb:44
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:44
+  [1m[36mAddress Update (0.3ms)[0m  [1m[33mUPDATE "addresses" SET "street" = ?, "number" = ?, "updated_at" = ? WHERE "addresses"."id" = ?[0m  [["street", "Rua 13 de maio"], ["number", 500], ["updated_at", "2018-06-22 01:31:52.538803"], ["id", 1]]
+  ↳ app/controllers/addresses_controller.rb:44
+  [1m[35m (117.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/addresses_controller.rb:44
+Redirected to http://localhost:3000/addresses/1
+Completed 302 Found in 134ms (ActiveRecord: 118.4ms)
+
+
+Started GET "/addresses/1" for 127.0.0.1 at 2018-06-21 22:31:52 -0300
+Processing by AddressesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:67
+  Rendering addresses/show.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/show.html.erb:25
+  Rendered addresses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39ms (Views: 36.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-21 22:31:54 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 43ms (Views: 37.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-21 22:31:56 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 50ms (Views: 41.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-21 22:31:58 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.3ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 52ms (Views: 43.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-21 22:32:00 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-21 22:32:00 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-21 22:32:01 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-21 22:32:03 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+
+
