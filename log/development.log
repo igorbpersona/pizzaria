@@ -2129,3 +2129,1520 @@ Processing by CustomersController#index as HTML
 Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20180623145355)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180623145355_create_users.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180623145355_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180623145355"]]
+  ↳ bin/rails:9
+  [1m[35m (124.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:02:44 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 598ms (Views: 590.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-06-23 12:02:49 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (425.1ms)
+Completed 200 OK in 579ms (Views: 464.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-23 12:03:10 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I0wIjNq7c5Bm6Yc5DPBsgruTDk3r9MrS448F5UWqXYwHoWiUX0xiAezg+EJNClD2wsmsh5OE5EtNhE8stRatnw==", "user"=>{"email"=>"igor@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+Unpermitted parameters: :password, :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["email", "igor@mail.com"], ["created_at", "2018-06-23 15:03:10.750154"], ["updated_at", "2018-06-23 15:03:10.750154"]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 92.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:03:10 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-06-23 12:03:13 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 46ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:03:24 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hrJfTa/+22Q6Vbkdw5eNDLMlXxtxSco3rrTdL8xk1afCKX0ki+b1fm44S3/vkJFSS3UCGtHxxLJ5/aeepFUijA==", "email"=>"igor@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "igor@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `authenticate' for #<User:0x0000000358e8e8>):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started GET "/sessions/new" for 127.0.0.1 at 2018-06-23 12:04:01 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:04:06 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tGdZmCsQbeoFoPjo4X1zZR5IvO+O1Pam0bZxoCe+75HzDR+NhZgo+1TXv/XELsd/c/xYTMFQICW1FhfPHXv0ug==", "email"=>"igor@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "igor@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.3ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:08:08 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `logged_in?' for #<#<Class:0x007f0fe02491d0>:0x007f0fe020b718>
+Did you mean?  logger?):
+    12:   <body>
+    13: 
+    14:   <div id="user_header">
+    15:     <% if logged_in? %>
+    16: 
+    17:       <header>
+    18:       <h1 id="application-name"><a href="/">Pizzaria!</a></h1>
+  
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__1797565934846358196_69853080729500'
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:10:31 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:10:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 63ms (Views: 48.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:11:19 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:11:42 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:11:44 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 60ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-23 12:12:00 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+EL4/3sdLb1vwVgLMbOtN55Kt6BbSLkyKQRh2pQ8MLnDGv7eBtlJ3+2ehttPPLApyOIFPkdDH1mr1tOmuwA0Q==", "user"=>{"email"=>"igorbpersona@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "igorbpersona@gmail.com"], ["password_digest", "$2a$10$yPQ805CJfqT5v4l2LXoCX.W1Gopc26pIlcpGZjF9p2UnaAC7CjBlK"], ["created_at", "2018-06-23 15:12:00.606347"], ["updated_at", "2018-06-23 15:12:00.606347"]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (97.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 192ms (ActiveRecord: 98.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:12:00 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"sessions"}, missing required keys: [:id]):
+    25:               <li><a href="/orders">Orders</a></li>
+    26:               <li><a href="/pizzas">Pizzas</a></li>
+    27:               <li><a href="/pizza_orders">Bind Order-Pizza</a></li>
+    28:               <li><%= link_to 'Logout', session_path, method: :delete %></li>
+    29:             </ul>
+    30:         </nav>
+    31:       </header>
+  
+app/views/layouts/application.html.erb:28:in `_app_views_layouts_application_html_erb__1797565934846358196_69852881409700'
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:12:32 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-06-23 12:12:35 -0300
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:12:36 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:12:38 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:12:41 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 49ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:12:42 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:12:44 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 56ms (Views: 53.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-23 12:12:51 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"osmQzdVLb4noAJFkf1Apc+O2Ex7If0a3HIDswaGBMUmGJPDVULx+GGIJ7h8+qhUHmuyx1LAPaC6yi6YIUT3BWg==", "user"=>{"email"=>"joelta@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "joelta@mail.com"], ["password_digest", "$2a$10$6X5WVzM9rqe2IDktQ4vIQ.j4yH8/ZL9ooZ5GWjA9UAWgToHDIDsJy"], ["created_at", "2018-06-23 15:12:52.014600"], ["updated_at", "2018-06-23 15:12:52.014600"]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (117.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 213ms (ActiveRecord: 118.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:12:52 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:12:55 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (10.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 191ms (Views: 48.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 12:12:57 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (49.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 210ms (Views: 81.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:12:58 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (11.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 79ms (Views: 45.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:12:59 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 60ms (Views: 48.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-23 12:12:59 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.3ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (17.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 73ms (Views: 62.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-23 12:13:01 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.4ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:13:02 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (5.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 63ms (Views: 60.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:13:02 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 57ms (Views: 55.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 12:13:02 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:13:03 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 51ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:13:15 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 12:13:17 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NhIuXrd9XHTPG5CyE97tdAt70JYmlWJ9Mh3XLdK8+3ZxeGhLGfUZZZ5s1682jVluZs80NWkRtP5WvbFC6HngXQ==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:13:17 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:13:19 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 51ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:13:21 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:13:30 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CREC67QvtJnLj7co2sXS8jCpg/lq4bRDKoWwhPdZ2zNNiiCCkDeag5/iRUr2ws6syPne+MpZusb9zMo1n2gsGA==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 91ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:13:30 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 12:13:32 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EqMaBNE6Ud38YSax+AYL/RW/HUbF2jayXa+oo6yOSAlVyVwRf7IUzK0WYazdVb/neAv55Ype4DE5D87MlktTIg==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:13:32 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:13:34 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-23 12:13:47 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G1MvONHGd8dMS+p7tnCAV5NiaFWwfdYm9+SRWEHMjCk/vk8gVDFmVsZClQD3irwj6jjKn8gN+L9Z79uRsXB8Og==", "user"=>{"email"=>"mail@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "mail@mail.com"], ["password_digest", "$2a$10$uIm9QYJK9XJ4tVHHrCse2eAtt8oizUhuV2EGKgfZx1hHVP.y5fh0K"], ["created_at", "2018-06-23 15:13:47.120266"], ["updated_at", "2018-06-23 15:13:47.120266"]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (73.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 169ms (ActiveRecord: 74.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:13:47 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:14:09 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 12:14:14 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:14:16 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 43ms (Views: 40.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:14:17 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 58ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-23 12:14:20 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.3ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 55ms (Views: 51.8ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 12:14:23 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HdxbijG9Eg1DcRcImXseazvbJ6PnjDziznNSRVD0XfBath2fnzVXHBIGUBW8KKpxVm/DAKgI6mGq0zQqajFG2w==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:14:23 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:16:36 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:17:33 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "	margin:": expected expression (e.g. 1px, bold), was ";"):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/welcome.scss:89
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1797565934846358196_69853064408260'
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:17:56 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 76ms (Views: 74.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:18:09 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 85ms (Views: 84.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:18:16 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 88ms (Views: 86.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:18:32 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:19:05 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:19:11 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:19:16 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:19:17 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:19:19 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:19:19 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:19:20 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:19:20 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:21:47 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:21:49 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:21:50 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 57ms (Views: 54.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:21:50 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 52ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:21:51 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:21:51 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:21:58 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:21:59 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 58ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:21:59 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:22:00 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 63ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:22:00 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:22:07 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:22:11 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PeOCnf8wFeiNJhVf86Nmgq00alRCAF77MpSqsNCGJwV5eKD02yg78tlL5z3fpHrcVWQ3VeK4UH7l3dABuLfQLg==", "email"=>"igor@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "igor@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:22:26 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PeOCnf8wFeiNJhVf86Nmgq00alRCAF77MpSqsNCGJwV5eKD02yg78tlL5z3fpHrcVWQ3VeK4UH7l3dABuLfQLg==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 92ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:22:26 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 12:22:31 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NyS6+TnGrMSHrlarbasZ5ocFtEg8tPnVcCvY4uIlNrdwTvzsl07p1dbZEbZI+K386rFQ63MwL1YUi76N2OAtnA==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:22:31 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:22:32 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:22:34 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fljRJkOskKiz2fDtj8KG5V1iUeGa7F6xMTu6cmtzQk06w/NPZ7S+sue0Ao+jxZq7pTIM4DpUUDTmcsDDA0K1Zg==", "email"=>"dsadsa", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dsadsa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:22:46 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iZLqEw8JXgBoScgj/EGM9xfsio2KJAmHVFjwHlm9zkLO+KwGoYEbETk+jz7ZEjjtelhuLsWg3wQw+JZxY3jVaQ==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 119ms (Views: 30.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:22:49 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+IexU1MpJ5gcr9GLjCWiOlml4S6uwtUqhqVSSNCmz4q/7fdG/aFiiU3YlpapdhYgNBEFjeFGA6niBTQn6mPUoQ==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:22:49 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:22:53 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:22:53 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:24:21 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 12:24:25 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0BUgn/exGlZdHFte/hgkK75BTc6N7KRIdlbYuM7UeKiXf2aKWTlfRwxrHEPbS5Ax0/WpbcJocssS9r7X9BFjgw==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:24:25 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:24:54 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 80ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:01 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 46.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:50 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 72ms (Views: 70.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:54 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:55 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:56 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 60ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:56 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:56 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 58ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:57 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:57 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 54ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:57 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:58 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 61ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:58 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:59 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 69ms (Views: 66.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:25:59 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 63ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:25:59 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:00 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 47ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:00 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 60ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:01 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 51ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:01 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 59ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:01 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 56ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:02 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 61ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:02 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 53ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:02 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 57ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:33 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 78ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:35 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:36 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:37 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 47ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:37 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:37 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:26:38 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 64ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:38 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:26:50 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 70ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:27:37 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:27:48 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 73ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:27:58 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 82ms (Views: 79.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:28:29 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:28:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 97ms (Views: 94.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:28:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:28:37 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:28:37 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:28:47 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 83ms (Views: 81.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 12:28:54 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 82ms (Views: 80.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 12:28:59 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 12:29:05 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LKATs9KTPhS9T0Sj1/XXppLSoInMArxj8AcLtY+kUg1oOzHa9osQDukitsH78sv4aoL9iGy6suYnTnEE55WlJg==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:29:05 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:29:07 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 12:29:10 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (6.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 12:29:12 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 12:29:12 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-23 12:29:13 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.3ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (7.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 12:29:15 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (7.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 12:29:15 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 12:29:16 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 52ms (Views: 50.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 13:08:48 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 52ms (Views: 49.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2018-06-23 13:08:48 -0300
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:14
+  Rendered customers/index.html.erb within layouts/application (5.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-06-23 13:08:49 -0300
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (2.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:15
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/orders/index.html.erb:18
+  Rendered orders/index.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 53ms (Views: 47.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-06-23 13:08:49 -0300
+Processing by AddressesController#index as HTML
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:18
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/addresses/index.html.erb:24
+  Rendered addresses/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2018-06-23 13:08:50 -0300
+Processing by PizzasController#index as HTML
+  Rendering pizzas/index.html.erb within layouts/application
+  [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/views/pizzas/index.html.erb:15
+  Rendered pizzas/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pizza_orders" for 127.0.0.1 at 2018-06-23 13:08:50 -0300
+Processing by PizzaOrdersController#index as HTML
+  Rendering pizza_orders/index.html.erb within layouts/application
+  [1m[36mPizzaOrder Load (0.3ms)[0m  [1m[34mSELECT "pizza_orders".* FROM "pizza_orders"[0m
+  ↳ app/views/pizza_orders/index.html.erb:15
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:17
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT  "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pizza_orders/index.html.erb:18
+  Rendered pizza_orders/index.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/sessions/bogus-id" for 127.0.0.1 at 2018-06-23 13:08:51 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9jyZR8dafHuxt2C2LQSAm/oa6hy4SwiGipKcNd5XUDyxVt9SadI5auDAJ6sIVzSBl64Ov/fP3gXuMvpa5JJLFw==", "id"=>"bogus-id"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 13:08:51 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 13:08:55 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:05 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 13:17:06 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 56ms (Views: 54.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:06 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 13:17:07 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:09 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:34 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 51ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 13:17:38 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-23 13:17:40 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 13:17:40 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-23 13:17:42 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-06-23 13:17:45 -0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JuiWyq2axKDV6fIl5aXhuN8ZvVEU5Ufn3fL1+FvXRkFic7SjiYLquoGEAEfJov3mJ0ngULRdSWIKu49JM+axag==", "email"=>"joelta@mail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joelta@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-23 13:17:45 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
